@@ -1,0 +1,5 @@
+Contiene:
+-Envío mqtt 
+-Recepción mqtt
+-Envío por webService de la temperatura y la presion
+-EJB para guardar la temperatura
