@@ -1,8 +1,0 @@
-ejb\Raspberry.class
-mqtt\MqttManagerBean.class
-mqtt\MqttListener.class
-mqtt\Topic.class
-WebService\SensorTemperatura.class
-util\Time.class
-ejb\Starter.class
-SensorRpi\Sensor.class
