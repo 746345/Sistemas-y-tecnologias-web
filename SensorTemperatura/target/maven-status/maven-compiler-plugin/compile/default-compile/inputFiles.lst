@@ -1,32 +1,34 @@
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroEncendido.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\TimerBean.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\Login.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\FileUploader.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\ListDocuments.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroTemperatura.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\GetFile.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Sonoff.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\MqttListener.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\AbstractFacade.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\sensorRpi\Sensor.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\Usuario.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\webService\SensorTemperatura.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroTempDAO.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroTemperatura.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\UsuarioDAO.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Raspberry.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Starter.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\MqttManagerBean.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroAcceso.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteUsuario.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroEncendido.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\FicheroDBFacade.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroEncendidoDAO.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroAcceso.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroEncendido.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroAccesoDAO.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\FicheroDB.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\Topic.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddUsuario.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroTemp.java
-C:\Unizar\5º Año 2o Cuatri\Sistemas y Tecnologías Web\Dia29-05\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroAcceso.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteUsuario.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroTemperatura.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroAcceso.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\FicheroDBFacade.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Starter.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\SwitchSonoff.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroTemp.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\Login.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroAccesoDAO.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\websocket\WebSocketManager.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\MqttListener.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\UsuarioDAO.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\MqttManagerBean.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\webService\SensorTemperatura.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\AbstractFacade.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\GetFile.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroEncendido.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroTemperatura.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Sonoff.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\FicheroDB.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\Usuario.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\TimerBean.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddUsuario.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroAcceso.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\sensorRpi\Sensor.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\ListDocuments.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroAcceso.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroEncendido.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroEncendidoDAO.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroEncendido.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\Topic.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Raspberry.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\FileUploader.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroTempDAO.java
