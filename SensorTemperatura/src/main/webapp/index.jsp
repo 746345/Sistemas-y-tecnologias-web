@@ -5,7 +5,7 @@
 --%>
 
 
-<%@page import="ejb.Raspberry"%>
+<%@page import="caseta.ejb.Raspberry"%>
 
 <%@page import="javax.naming.InitialContext"%>
  <%
