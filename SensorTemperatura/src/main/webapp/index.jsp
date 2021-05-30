@@ -1,8 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<style>
+form {margin: 0 auto; width: 250px;}
+</style>
 <html>
     <head>
-        <title>Prueba</title>
+        <title>CASETA</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
@@ -12,18 +15,17 @@
         <div>
         <h1>CASETA</h1>
         <hr>
-        
-        <form  method="POST" action="identificacion">
+        <form  method="POST" action="iniciarSesion">
             <h2>Identificación</h2>
-            <p>      
+            <br>
             <label><b>Introducir usuario: </b></label>
-            <input name="dni" type="text"></p>
-            <p>
-            <p>      
+            <input name="dni" type="text">
+            <br>      
             <label><b>Introducir contraseña: </b></label>
-            <input name="pwd" type="password"></p>
-            <p>
-            <input type="submit" value="Iniciar Sesión"></p>
+            <input name="pwd" type="password">
+            <br>
+            <br>
+            <input type="submit" value="Iniciar Sesión">
         </form>
         <hr>
         <form method="POST" action="registrarUsuario.jsp">
