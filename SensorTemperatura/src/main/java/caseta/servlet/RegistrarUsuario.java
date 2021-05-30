@@ -15,14 +15,15 @@ import caseta.bd.UsuarioDAO;
  *  Sistemas y Tecnologías Web
  *  2021
  */
-@WebServlet(name = "AddUsuario", urlPatterns = {"/addUsuario"})
-public class AddUsuario extends HttpServlet {
+@WebServlet(name = "RegistrarUsuario", urlPatterns = {"/registrarUsuario"})
+public class RegistrarUsuario extends HttpServlet {
 
     
     @EJB UsuarioDAO usuarioDB;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         request.setCharacterEncoding("UTF-8"); 
         
         String usuario = request.getParameter("usuario");
@@ -38,7 +39,7 @@ public class AddUsuario extends HttpServlet {
 
         usuarioDB.create(u);
         
-        //response.sendRedirect(response.encodeRedirectURL(".jsp"));
+        response.sendRedirect(response.encodeRedirectURL("index.jsp"));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -19,7 +19,7 @@ form {margin: 0 auto; width: 250px;}
             <h2>Identificación</h2>
             <br>
             <label><b>Introducir usuario: </b></label>
-            <input name="dni" type="text">
+            <input name="usuario" type="text">
             <br>      
             <label><b>Introducir contraseña: </b></label>
             <input name="pwd" type="password">

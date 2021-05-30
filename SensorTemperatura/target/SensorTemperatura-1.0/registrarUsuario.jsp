@@ -19,7 +19,7 @@ form {margin: 0 auto; width: 260px;}
             <h2>Identificación </h2>
             <br>
             <label><b>Introducir nombre de usuario</b></label>
-            <input name="username" type="text">
+            <input name="usuario" type="text">
             <br>
             <label><b>Introducir nombre</b></label>
             <input name="nombre">

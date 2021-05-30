@@ -9,14 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import caseta.bd.Usuario;
 import caseta.bd.UsuarioDAO;
+import javax.servlet.http.HttpSession;
 
 /**
  *  Iñaki Sánchez   -746345-
  *  Sistemas y Tecnologías Web
  *  2021
  */
-@WebServlet(name = "Login", urlPatterns = {"/login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "IniciarSesion", urlPatterns = {"/iniciarSesion"})
+public class IniciarSesion extends HttpServlet {
 
     @EJB UsuarioDAO usuarioDB;
     /**
@@ -36,14 +37,30 @@ public class Login extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String pwd = request.getParameter("pwd");
         
-        
-        if(usuarioDB.find(usuario) != null){
-            Usuario u = usuarioDB.find(usuario);
-            
-            if(u.getPwd().equals(pwd)){
-                //crear la sesión
+        if((usuario.equals("")) || (pwd.equals(""))) {
+            response.sendRedirect(response.encodeRedirectURL("index.jsp"));
+        } else {
+            if(usuarioDB.find(usuario) != null){
+                Usuario u = usuarioDB.find(usuario);
+
+                if(u.getPwd().equals(pwd)){
+                    //Si existe la sesión te la devuelve, si no existe la crea, pero vacía
+                    HttpSession session = request.getSession(true);
+
+                    //Se establece el objeto usuario en la sesión
+                    session.setAttribute("usuario", usuario);
+
+                    if(usuario.equals("admin")){
+                        response.sendRedirect(response.encodeRedirectURL("panelAdmin.jsp"));
+                    } else {
+                        response.sendRedirect(response.encodeRedirectURL("panelCtrl.jsp"));
+                    }
+                } else {
+                    response.sendRedirect(response.encodeRedirectURL("index.jsp"));
+                }
+            } else {
+                response.sendRedirect(response.encodeRedirectURL("index.jsp"));
             }
-            
         }
         
         
