@@ -3,6 +3,7 @@ package caseta.ejb;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
+
 import caseta.websocket.WebSocketManager;
 
 /**
