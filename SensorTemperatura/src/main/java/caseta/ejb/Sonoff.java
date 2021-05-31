@@ -3,7 +3,8 @@ package caseta.ejb;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
-import caseta.webSocket.WebSocketManager;
+
+import caseta.websocket.WebSocketManager;
 
 /**
  *  Iñaki Sánchez   -746345-
