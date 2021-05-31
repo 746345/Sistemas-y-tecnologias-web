@@ -13,19 +13,14 @@ import caseta.websocket.WebSocketManager;
  */
 @Singleton
 public class Sonoff {
-    private Boolean estado = false;
+    private boolean estado = false;
     private WebSocketManager ws;
     
-    public Boolean getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean _estado) {
-        this.estado = _estado;
-    }
-
-
-    public void setEstadoSonoff(Boolean _estado) {
+    public void setEstado(boolean _estado) {
         this.estado = _estado;
         if(ws != null){
            if (this.estado){

@@ -24,15 +24,15 @@ public class TimerBean {
    // }
 
     
-   @Schedule(hour = "*", minute = "*/5", second = "7", persistent = false)
-    public void toggleSonoffTimer() {
-        System.out.println("==== TIMER ==== ");
-        if (sonoff.getEstado()){
-            sonoff.setEstado(false);
-        }else{
-            sonoff.setEstado(true);
-        }
-        mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
-    }
+//   @Schedule(hour = "*", minute = "*/5", second = "7", persistent = false)
+//    public void toggleSonoffTimer() {
+//        System.out.println("==== TIMER ==== ");
+//        if (sonoff.getEstado()){
+//            sonoff.setEstado(false);
+//        }else{
+//            sonoff.setEstado(true);
+//        }
+//        mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
+//    }
 
 }

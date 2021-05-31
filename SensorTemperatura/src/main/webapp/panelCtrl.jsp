@@ -1,3 +1,32 @@
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="caseta.ejb.Raspberry"%>
+<%@page import="caseta.ejb.Sonoff"%>
+<%
+    Sonoff sonoff = null;
+    Raspberry rpi = null;
+    InitialContext ic = new InitialContext();
+    sonoff  = (Sonoff)ic.lookup("java:global/SensorTemperatura/Sonoff!caseta.ejb.Sonoff");
+    rpi     = (Raspberry)ic.lookup("java:global/SensorTemperatura/Raspberry!caseta.ejb.Raspberry");
+    
+    String onDisabled   = "";
+    String offDisabled  = "";
+    String colorSonoff  = "";
+    String estadoSonoff = "???";
+    
+    if (sonoff.getEstado()){
+        onDisabled  = "DISABLED";
+        offDisabled = "";
+        colorSonoff       = "yellowgreen";
+        estadoSonoff      = "ENCENDIDO";
+    }else{
+        onDisabled  = "";
+        offDisabled = "DISABLED";
+        colorSonoff       = "red";
+        estadoSonoff      = "APAGADO";
+    }
+%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <style>
@@ -29,8 +58,6 @@ form {margin: 0 auto; width: 260px;}
                 <br>
                 <center>
                     <b><div id="tempCPU" style="font-size: 20px;">? ? ?</div><div style="font-size: 20px;">ºC</div></b>
-                    <hr>
-                    <b><div id="press" style="font-size: 20px;">? ? ?</div><div style="font-size: 20px;">hPa</div></b>
                 </center>  
                 </fieldset>
             </td>
@@ -40,60 +67,39 @@ form {margin: 0 auto; width: 260px;}
                     <br>
 
                     <center>
-                    <canvas id="ledBombilla" width="50" height="50" style="border:1px solid #d3d3d3;">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                    <br>
-                    <b><div style="font-size: 20px;">Estado: </div><div id="bombillaON" style="font-size: 20px;">? ? ?</div></b>
-                    <br>
-                    <form method="POST" id="sonoff" action="switchSonoff">
-                        <button type="submit" form="sonoff" name="on" value="ON" id="encender" onclick="encender();">Encender</button> 
-                        <button type="submit" form="sonoff" name="off" value="OFF" id="apagar" onclick="apagar();">Apagar</button>
-                    </form>
+                    <table>
+                        <tr>
+                            <td>
+                                <center>
+                                <form method="POST" id="sonoff" action="switchSonoff">
+                                    <button type="submit" form="sonoff" name="on" value="ON" <%=onDisabled%>>ON</button> 
+                                    <button type="submit" form="sonoff" name="off" value="OFF" <%=offDisabled%>>OFF</button> 
+                                </form>
+                                </center>
+                            </td>
+                            
+                            <td>
+                            <center>
+                                <canvas style="background-color: <%=colorSonoff%>"  width="50" height="50"></canvas>
+                            </center>
+                            </td>
+                            
+                            <td valign="middle">
+                                <center>
+                                    Estado: <%=estadoSonoff%>
+                                </center>
+                            </td>    
+                        </tr>
+                    </table> 
                     </center>
                 </fieldset>
             </td>
+            <td valign="top">
+                <fieldset>
+                <legend>Vídeo</legend>
+                </fieldset>
+            </td>
         </tr>
-        
-        <br>
-        <br>
-        
-        <table>
-            <tr>
-                <td valign="top">
-                </td>
-                <td valign="top">
-                    <fieldset>
-                        <legend>BMP280</legend>
-                        
-                        <br>
-                        <table>
-                            <tr>
-                                <td>Temperatura:</td>
-                                <td align="center"><b><div style="font-size: 20px;">? ºC</div></b></td>
-                            </tr>
-                            <tr>
-                                <td>Presión:</td>
-                                <td align="center"><b><div style="font-size: 20px;">? hPa</div></b></td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                </td>
-                <td valign="top">
-                    <fieldset>
-                        <legend>Sonoff</legend>
-                        
-                        <br>
-                        <table>
-                            <tr>
-                                <td>Estado</td>
-                                <td align="center"><b><div style="font-size: 20px;">?</div></b></td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                </td>
-            </tr>
-        </table>
         
         <br>
         <br>

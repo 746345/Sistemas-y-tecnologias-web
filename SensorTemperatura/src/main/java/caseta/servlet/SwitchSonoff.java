@@ -35,11 +35,19 @@ public class SwitchSonoff extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String comando   = request.getParameter("comando");
+        String on;
+        String off;
+        
+        on = request.getParameter("on");
+        off = request.getParameter("off");
 
-        if (comando!=null){
-            mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, comando, false);  
+        if (on!=null){
+            sonoff.setEstado(true);
+        }else{
+            sonoff.setEstado(false);
         }
+        mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
+        mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
         
         
         response.sendRedirect(response.encodeURL("panelCtrl.jsp"));
