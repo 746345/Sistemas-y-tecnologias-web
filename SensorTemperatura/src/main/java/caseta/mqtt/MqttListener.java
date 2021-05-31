@@ -17,7 +17,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 /**
  *
- * @author Ana
+ * @author Ana, Iñaki
  */
 public class MqttListener implements MqttCallback {
 
@@ -28,14 +28,14 @@ public class MqttListener implements MqttCallback {
         try {
             InitialContext ic = new InitialContext();
             rpi = (Raspberry) ic.lookup("java:global/SensorTemperatura/Raspberry");
-            sonoff = (Sonoff) ic.lookup("java:global/DemoMQTT/Sonoff");
+            sonoff = (Sonoff) ic.lookup("java:global/SensorTemperatura/Sonoff");
         } catch (NamingException ex) {
             Logger.getLogger(MqttListener.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    /*Metodo que se activa cuando llega un mensaje a cualquiera de los topics
-    * que esta subscrito
+    /*  Metodo que se activa cuando llega un mensaje a cualquiera de los topics
+     *  que esta subscrito
      */
     @Override
     public void messageArrived(String _topic, MqttMessage _mm) throws Exception {
