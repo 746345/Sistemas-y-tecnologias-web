@@ -2,17 +2,19 @@ package caseta.ejb;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
+import caseta.webSocket.WebSocketManager;
 
 /**
  *  Iñaki Sánchez   -746345-
  *  Sistemas y Tecnologías Web
  *  2021
  */
-@Stateless
+@Singleton
 public class Sonoff {
     private Boolean estado = false;
-
+    private WebSocketManager ws;
+    
     public Boolean getEstado() {
         return estado;
     }
@@ -20,19 +22,16 @@ public class Sonoff {
     public void setEstado(Boolean _estado) {
         this.estado = _estado;
     }
-    
-        //private boolean estadoSonoff;
-    
-    //private WebSocketManager/*o como lo llame futu*/ ws;
-/*
-    public boolean isEstadoSonoff() {
-        return estadoSonoff;
-    }
 
-    public void setEstadoSonoff(boolean estadoSonoff) {
-        this.estadoSonoff = estadoSonoff;
+
+    public void setEstadoSonoff(Boolean _estado) {
+        this.estado = _estado;
         if(ws != null){
-            //propagar mensaje por el webSocket de si esta encendido o apagado
+           if (this.estado){
+               ws.broadcastMsg("Encendido");
+           }else{
+               ws.broadcastMsg("Apagado");
+           }
         }
         
     }
@@ -47,7 +46,5 @@ public class Sonoff {
         if(ws != null){
             ws.destroy();
         }
-    }
-*/
-    
+    }    
 }
