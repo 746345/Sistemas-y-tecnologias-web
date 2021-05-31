@@ -17,7 +17,7 @@ form {margin: 0 auto; width: 260px;}
         <hr>
         
         <td width ="90%" align="right"/>
-        <b>Usuario:</b> ${usuario}
+        <b>¡ Hola </b>${usuario}<b> !</b>
         <b>Sesión:</b> <%=session.getId()%>
         <br>
         <br>
