@@ -2,10 +2,11 @@ C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroTemperatura.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\DeleteRegistroAcceso.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\FicheroDBFacade.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\RegistrarUsuario.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Starter.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\SwitchSonoff.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroTemp.java
-C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\Login.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\IniciarSesion.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroAccesoDAO.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\websocket\WebSocketManager.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\mqtt\MqttListener.java
@@ -18,9 +19,9 @@ C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddRegistroTemperatura.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\Sonoff.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\FicheroDB.java
+C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\CerrarSesion.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\Usuario.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\ejb\TimerBean.java
-C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\AddUsuario.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\bd\RegistroAcceso.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\sensorRpi\Sensor.java
 C:\Users\Jesus\Documents\GitHub\Sistemas-y-tecnologias-web\SensorTemperatura\src\main\java\caseta\servlet\ListDocuments.java

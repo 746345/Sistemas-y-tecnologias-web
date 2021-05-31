@@ -42,7 +42,7 @@ public class SwitchSonoff extends HttpServlet {
         }
         
         
-        response.sendRedirect(response.encodeURL("index.jsp"));
+        response.sendRedirect(response.encodeURL("panelCtrl.jsp"));
         
     }
 

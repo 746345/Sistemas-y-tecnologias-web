@@ -31,7 +31,7 @@ public class WebSocketManager {
     private static Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
     private static WebSocketManager wsmSingleton = null; //Singleton, una única instancia
     
-    @EJB Sonoff tmp;
+    @EJB Sonoff sonoff;
     @EJB Raspberry rpi;
     
     private WebSocketManager(){
@@ -56,7 +56,7 @@ public class WebSocketManager {
         System.out.println(">>> Session " +_session.getId()+" created");
         sessions.add(_session);
         
-        if (tmp.getEstado()){
+        if (sonoff.getEstado()){
             broadcastMsg("encendido");
         }else{
             broadcastMsg("apagado");
@@ -77,11 +77,10 @@ public class WebSocketManager {
                 if(_message == "encender" && _message == "apagar"){
                     switch (_message){
                     case "encender":
-                        tmp.setEstado(true);
+                        sonoff.setEstado(true);
                         break;
-
                     case "apagar":
-                        tmp.setEstado(false);
+                        sonoff.setEstado(false);
                         break;
                     }
                 }else{

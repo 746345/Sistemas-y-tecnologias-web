@@ -29,12 +29,11 @@ public class Sonoff {
         this.estado = _estado;
         if(ws != null){
            if (this.estado){
-               ws.broadcastMsg("Encendido");
+               ws.broadcastMsg("encendido");
            }else{
-               ws.broadcastMsg("Apagado");
+               ws.broadcastMsg("apagado");
            }
         }
-        
     }
     
     @PostConstruct
