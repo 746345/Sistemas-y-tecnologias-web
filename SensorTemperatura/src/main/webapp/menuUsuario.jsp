@@ -27,41 +27,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
-        >>> <a href="<%=response.encodeRedirectURL("index.jsp")%>">Inicio</a> >>> <b>menuUsuario</b>
+        <a href="<%=response.encodeRedirectURL("panelAdmin.jsp")%>">Inicio</a> >>> <b>Gestión de Usuarios</b>
         <br>
         <br>
-        
+        <h3> Usuarios </h3>
+        <br>
             <tr>
-                <td valign="top">           
-                    <fieldset>
-                        <legend>Añadir Usuario</legend>
-
-                        <table>
-                            <form method="POST" action="registrarUsuario">
-                                <tr>
-                                    <td>Usuario</td>
-                                    <td><input name="usuario"></td>
-                                </tr>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td><input name="nombre"></td>
-                                </tr>
-                                <tr>
-                                    <td>Apellido</td>
-                                    <td><input name="apellido"></td>
-                                </tr>
-                                <tr>
-                                    <td>Contraseña</td>
-                                    <td><input name="pwd" type="password"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><input type="submit" value="Añadir"></td>
-                                </tr>
-                            </form>
-                        </table>
-                    </fieldset>
-                </td>
-
                 <td valign="top">
                     <table border="1">
                         <tr style="background-color:blue; color:white">
@@ -69,8 +40,6 @@
                             <td>Usuario</td>
                             <td>Nombre</td>
                             <td>Apellido</td>
-                            <!--<td></td>
-                            <td></td>-->
                         </tr>
                         <% for (Usuario u : listUsuarios) {%>
                         <tr>
@@ -84,8 +53,12 @@
                     </table>
                 </td>
             </tr>
-       
-
+            <br>
+            <center>
+                <form method="POST" action="anadirUsuario.jsp">
+                    <button type="submit">Añadir usuario</button>
+                </form>
+            </center>
 
     </body>
 </html>

@@ -49,7 +49,6 @@ public class SwitchSonoff extends HttpServlet {
         mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
         mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
         
-        
         response.sendRedirect(response.encodeURL("panelCtrl.jsp"));
         
     }

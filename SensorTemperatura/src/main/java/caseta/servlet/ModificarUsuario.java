@@ -38,7 +38,7 @@ public class ModificarUsuario extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");        
         
-        String usuario = request.getParameter("usuario");
+        String usuario = request.getParameter("id");
         String pwd = request.getParameter("pwd");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
@@ -49,7 +49,7 @@ public class ModificarUsuario extends HttpServlet {
             u.setApellido1(apellido);
             u.setPwd(pwd);
         }
-        response.sendRedirect("modificarUsuario.jsp");
+        response.sendRedirect("menuUsuario.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
