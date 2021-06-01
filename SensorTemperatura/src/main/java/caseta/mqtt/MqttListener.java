@@ -5,6 +5,7 @@ package caseta.mqtt;
 
 import caseta.bd.RegistroEncendido;
 import caseta.bd.RegistroTemp;
+import caseta.ejb.Camara;
 import com.google.gson.Gson;
 import caseta.sensorRpi.Sensor;
 import caseta.ejb.Raspberry;
@@ -25,6 +26,7 @@ public class MqttListener implements MqttCallback {
 
     private Raspberry rpi;
     private Sonoff sonoff;
+    private Camara camara;
 
     public MqttListener() {
         try {
@@ -70,6 +72,10 @@ public class MqttListener implements MqttCallback {
                     }
                     
                 }
+                break;
+            case Topic.TOPIC_CAMARA:
+                //Transformar el array de bytes en un fichero png
+                camara.setImagen(_mm.getPayload());
                 break;
 
            /* case Topic.TOPIC_MSG:
