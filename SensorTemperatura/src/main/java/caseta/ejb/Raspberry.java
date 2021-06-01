@@ -3,7 +3,9 @@
  */
 package caseta.ejb;
 
+import caseta.websocket.WebSocketManager;
 import com.google.gson.Gson;
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 
 /**
@@ -14,13 +16,22 @@ import javax.ejb.Stateless;
 public class Raspberry {
     private Double  temp    = Double.NaN;  // tª del BMP280
     private Double  press   = Double.NaN;  // del BMP280
+    private WebSocketManager ws;
 
+    @PostConstruct
+    public void init(){
+        ws = WebSocketManager.getInstance();
+    }
+    
     public Double getTemp() {
         return temp;
     }
 
     public void setTemp(Double temp) {
         this.temp = temp;
+        if (ws!=null){
+            ws.sendValor(this.temp);
+        }
     }
 
     public Double getPress() {
@@ -29,6 +40,9 @@ public class Raspberry {
 
     public void setPress(Double press) {
         this.press = press;
+//        if (ws!=null){
+//            ws.sendValor(this.press);
+//        }
     }
     
     
