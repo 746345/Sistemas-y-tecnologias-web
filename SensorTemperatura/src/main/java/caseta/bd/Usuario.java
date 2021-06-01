@@ -19,8 +19,7 @@ public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    @Id
-    private String usuario;
+    @Id private String usuario;
     private String pwd;
     private String nombre;
     private String apellido;

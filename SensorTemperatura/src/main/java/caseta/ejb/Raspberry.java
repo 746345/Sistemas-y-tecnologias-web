@@ -42,7 +42,7 @@ public class Raspberry {
         if (ws!=null){
             ws.sendValor(this.temp);
         }
-        evaluarTemperatura();
+        evaluarTemperatura(temp);
     }
 
     public Double getPress() {
@@ -72,7 +72,7 @@ public class Raspberry {
         this.TEMP_APAGADO = TEMP_APAGADO;
     }
     
-    public void evaluarTemperatura(){
+    public void evaluarTemperatura(double temp){
         if(sonoff.getEstado() && temp >= TEMP_APAGADO){
             sonoff.setEstado(false);
             mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);

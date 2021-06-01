@@ -9,9 +9,9 @@ var wsUri = "ws://" + document.location.host + "/SensorTemperatura/endpoint";
 var webSocket;
 
 // Elementos IU
-var bombillaON = document.getElementById("bombillaON");
+/*var bombillaON = document.getElementById("bombillaON");
 var bON = document.getElementById("ledBombilla");
-var ledBombilla = bON.getContext("2d");
+var ledBombilla = bON.getContext("2d");*/
 var temp = document.getElementById("temp");
 
 // Botones
@@ -54,12 +54,12 @@ openSocket();
             encender.disabled = false;
             apagar.disabled = true;
             bombillaEncendida = false;
-            updateEstadoBombilla(bombillaEncendida);
+            //updateEstadoBombilla(bombillaEncendida);
         }else if (msg==="encendido"){
             encender.disabled = true;
             apagar.disabled = false;
             bombillaEncendida = true;
-            updateEstadoBombilla(bombillaEncendida);
+            //updateEstadoBombilla(bombillaEncendida);
         } else {
             updateTemperatura(msg);
         }
@@ -98,7 +98,7 @@ function updateTemperatura(_temp){
     temp.innerHTML = tmp;
 }
 
-function updateEstadoBombilla(_nuevoEstado){
+/*function updateEstadoBombilla(_nuevoEstado){
     ledBombilla.beginPath();
     bombillaEncendida = _nuevoEstado;
     if (bombillaEncendida === true){
@@ -111,3 +111,5 @@ function updateEstadoBombilla(_nuevoEstado){
     ledBombilla.arc(25,25, 20, 0, 2 * Math.PI);
     ledBombilla.fill();
 }
+ * */
+

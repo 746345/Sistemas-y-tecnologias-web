@@ -25,14 +25,14 @@ public class Sonoff {
 
     public void setEstado(boolean _estado) {
         this.estado = _estado;
-        if(ws != null){
+        /*if(ws != null){
            if (this.estado){
                ws.broadcastMsg("encendido");
            }else{
                ws.broadcastMsg("apagado");
            }
-        }
-  
+        }*/
+        
     }
     
     @PostConstruct

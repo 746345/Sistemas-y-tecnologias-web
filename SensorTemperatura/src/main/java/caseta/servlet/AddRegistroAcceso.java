@@ -11,6 +11,7 @@ import caseta.bd.RegistroAcceso;
 import caseta.bd.RegistroAccesoDAO;
 import caseta.bd.Usuario;
 import caseta.bd.UsuarioDAO;
+import caseta.ejb.Sonoff;
 
 /**
  *  Iñaki Sánchez   -746345-
@@ -24,6 +25,8 @@ public class AddRegistroAcceso extends HttpServlet {
     RegistroAccesoDAO rAccesoDB;
     @EJB
     UsuarioDAO usuarioDB;
+    @EJB
+    Sonoff sonoff;
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -40,15 +43,14 @@ public class AddRegistroAcceso extends HttpServlet {
             RegistroAcceso rAcceso = new RegistroAcceso();
             rAcceso.setUsuario(usuario);
             rAcceso.setFecha(System.currentTimeMillis());
-            //---------------------------------------------------------------
-            rAcceso.setEstadoSonoff(true); //buscar devolver el estado del sonoff
-            //---------------------------------------------------------------
+            rAcceso.setEstadoSonoff(sonoff.getEstado()); 
+            rAccesoDB.create(r);
         } else {
             request.getSession(true).setAttribute("mensaje", "Usuario no encontrado");
 
         }
 
-        rAccesoDB.create(r);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

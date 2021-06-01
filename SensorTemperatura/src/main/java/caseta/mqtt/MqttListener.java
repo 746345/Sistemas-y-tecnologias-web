@@ -32,7 +32,7 @@ public class MqttListener implements MqttCallback {
         try {
             InitialContext ic = new InitialContext();
             rpi = (Raspberry) ic.lookup("java:global/SensorTemperatura/Raspberry!caseta.ejb.Raspberry");
-            sonoff = (Sonoff) ic.lookup("java:global/SensorTemperatura/Sonoff");
+            sonoff = (Sonoff) ic.lookup("java:global/SensorTemperatura/Sonoff!caseta.ejb.Sonoff");
         } catch (NamingException ex) {
             Logger.getLogger(MqttListener.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -53,6 +53,7 @@ public class MqttListener implements MqttCallback {
                 Sensor rpiDto = gson.fromJson(payload, Sensor.class);
                 
                 Double temperatura = rpiDto.getTemp();
+                System.out.println("la temperatura es: " + temperatura);
                 rpi.setTemp(temperatura);
                 rpi.setPress(rpiDto.getPress());
                 
@@ -72,7 +73,7 @@ public class MqttListener implements MqttCallback {
                 break;
             case Topic.TOPIC_CAMARA:
                 //Transformar el array de bytes en un fichero png
-                camara.setImagen(_mm.getPayload());
+                //camara.setImagen(_mm.getPayload());
                 break;
 
            /* case Topic.TOPIC_MSG:

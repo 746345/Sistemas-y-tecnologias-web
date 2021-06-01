@@ -38,16 +38,20 @@ public class ModificarUsuario extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");        
         
-        String usuario = request.getParameter("id");
+        String usuario = request.getParameter("usuario");
         String pwd = request.getParameter("pwd");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
+        System.out.println(usuario + " " + pwd + " " + nombre + " " + apellido);
         
         Usuario u = usuarioDB.find(usuario);
+        System.out.println("caseta.servlet.ModificarUsuario.processRequest()");
         if (u != null) {
+            System.out.println("usuario encontrado");
             u.setNombre(nombre);
             u.setApellido1(apellido);
             u.setPwd(pwd);
+            usuarioDB.edit(u);
         }
         response.sendRedirect("menuUsuario.jsp");
     }

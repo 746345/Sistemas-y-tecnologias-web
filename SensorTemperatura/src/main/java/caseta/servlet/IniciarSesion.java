@@ -1,5 +1,7 @@
 package caseta.servlet;
 
+import caseta.bd.RegistroAcceso;
+import caseta.bd.RegistroAccesoDAO;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import caseta.bd.Usuario;
 import caseta.bd.UsuarioDAO;
+import caseta.ejb.Sonoff;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -20,6 +23,8 @@ import javax.servlet.http.HttpSession;
 public class IniciarSesion extends HttpServlet {
 
     @EJB UsuarioDAO usuarioDB;
+    @EJB Sonoff sonoff;
+    @EJB RegistroAccesoDAO rAccesoDB;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -55,6 +60,14 @@ public class IniciarSesion extends HttpServlet {
                     } else {
                         response.sendRedirect(response.encodeRedirectURL("panelCtrl.jsp"));
                     }
+                    
+                    RegistroAcceso rAcceso = new RegistroAcceso();
+                    rAcceso.setUsuario(u);
+                    rAcceso.setFecha(System.currentTimeMillis());
+                    rAcceso.setEstadoSonoff(sonoff.getEstado());
+                    rAccesoDB.create(rAcceso);
+                    
+                    
                 } else {
                     response.sendRedirect(response.encodeRedirectURL("index.jsp"));
                 }

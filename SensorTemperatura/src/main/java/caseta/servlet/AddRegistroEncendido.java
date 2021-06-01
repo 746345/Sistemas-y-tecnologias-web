@@ -11,6 +11,7 @@ import caseta.bd.RegistroEncendido;
 import caseta.bd.RegistroEncendidoDAO;
 import caseta.bd.Usuario;
 import caseta.bd.UsuarioDAO;
+import caseta.ejb.Sonoff;
 
 /**
  *  Iñaki Sánchez   -746345-
@@ -24,6 +25,7 @@ public class AddRegistroEncendido extends HttpServlet {
     RegistroEncendidoDAO rEncendidoDB;
     @EJB
     UsuarioDAO usuarioDB;
+    @EJB Sonoff sonoff;
 
 
     
@@ -37,13 +39,13 @@ public class AddRegistroEncendido extends HttpServlet {
 
         Usuario usuario = usuarioDB.find(idUsuario);
 
-        if (usuario != null /*  && estadoSonoff != null*/) {
+        if (usuario != null) {
             RegistroEncendido rEncendido = new RegistroEncendido();
             rEncendido.setUsuario(usuario);
             rEncendido.setFecha(System.currentTimeMillis());
             //---------------------------------------------------------------
-            rEncendido.setEstadoSonoffPrevio(true); //buscar devolver el estado del sonoff
-            //---------------------------------------------------------------
+            rEncendido.setEstadoSonoffPrevio(sonoff.getEstado()); 
+            rEncendidoDB.create(rEncendido);
         } else {
             request.getSession(true).setAttribute("mensaje", "Usuario no encontrado");
 

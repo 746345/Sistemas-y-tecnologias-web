@@ -46,8 +46,8 @@
                             <td><%=u.getUsuario().toString()%></td>
                             <td><%=u.getNombre() %></td>
                             <td><%=u.getApellido()%><td>                            
-                            <td><a href="modificarUsuario.jsp?id=<%=u.getUsuario()%>">Modificar</td>
-                            <td><a href="deleteUsuario?id=<%=u.getUsuario()%>">Eliminar</td>
+                            <td><a href="modificarUsuario.jsp?usuario=<%=u.getUsuario()%>">Modificar</td>
+                            <td><a href="deleteUsuario?usuario=<%=u.getUsuario()%>">Eliminar</td>
                         </tr>
                         <% }%>
                     </table>

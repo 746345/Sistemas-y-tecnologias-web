@@ -14,7 +14,7 @@
     Context ctx = new InitialContext();
     usuarioDAO = (UsuarioDAO) ctx.lookup("java:global/SensorTemperatura/UsuarioDAO!caseta.bd.UsuarioDAO");
     
-    String txtUser = request.getParameter("id");
+    String txtUser = request.getParameter("usuario");
     String _idUsuario = "";
     Usuario usuario = null;
     if(txtUser != null){
@@ -46,7 +46,7 @@
 
                         <table>
                             <form method="POST" action="modificarUsuario">
-                                <input type=""hidden name="id" value="<%=usuario.getUsuario()%>">
+                                <input type="hidden" name="usuario" value="<%=usuario.getUsuario()%>">
                               <tr>
                                 <td>Nombre:</td>
                                 <td><input name="nombre" value="<%=usuario.getNombre()%>"></td>

@@ -26,9 +26,8 @@ public class DeleteUsuario extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        //Long id = Long.valueOf(request.getParameter("id"));
-        String id = String.valueOf(request.getParameter("id"));
-        Usuario u = usuarioDB.find(id);
+        String usuario = String.valueOf(request.getParameter("usuario"));
+        Usuario u = usuarioDB.find(usuario);
         if (u != null) {
             usuarioDB.remove(u);
         }
