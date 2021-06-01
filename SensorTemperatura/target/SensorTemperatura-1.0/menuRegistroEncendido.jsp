@@ -13,15 +13,18 @@
 <%
     RegistroEncendidoDAO rEncendidoDAO = null;
     Context ctx = new InitialContext();
-    rEncendidoDAO = (RegistroEncendidoDAO) ctx.lookup("java:global/BD_PProyecto-0.1");
+    rEncendidoDAO = (RegistroEncendidoDAO) ctx.lookup("java:global/SensorTemperatura/RegistroEncendidoDAO!caseta.bd.RegistroEncendidoDAO");
 
     List<RegistroEncendido> listRegistroEncendidos = rEncendidoDAO.findAll();
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>menuRegistroEncendido</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
         >>> <a href="<%=response.encodeRedirectURL("index.jsp")%>">Inicio</a> >>> <b>menuRegistroEncendidos</b>
@@ -29,23 +32,6 @@
         <br>
         <table>
             <tr>
-                <td valign="top">           
-                    <fieldset>
-                        <legend>Añadir Registro</legend>
-
-                        <table>
-                            <form method="POST" action="addRegistroEncendido">
-                                <tr>
-                                    <td>IdUsuario</td>
-                                    <td><input name="idUsuario"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><input type="submit" value="Añadir"></td>
-                                </tr>
-                            </form>
-                        </table>
-                    </fieldset>
-                </td>
 
                 <td valign="top">
                     <table border="1">
@@ -53,11 +39,11 @@
                             <td>Usuario</td>
                             <td>Fecha</td>
                             <td>Estado Sonoff</td>
-                            <td>Temperatura</td>
-                            <!--<td></td>
-                            <td></td>-->
                         </tr>
-                        <% for (RegistroEncendido r : listRegistroEncendidos) {%>
+                        <%
+                            String usuario = (String) session.getAttribute("usuario");
+                            if (usuario.equals("admin")) {
+                                for (RegistroEncendido r : listRegistroEncendidos) {%>
                         <tr>
                             <td><%=r.getUsuario().toString()%></td>
                             <td><%=r.getFecha()  %></td>
@@ -66,12 +52,15 @@
                                 <% }else{
                                 %>Apagado
                                 <%}%><td>  
-                                <td><%=r.getTemp()%></td>
-                            <!--<td><a href="verPedidosDeCliente.jsp?id=<%=//c.getId()%>">Mostrar Pedidos</td>
-                            <td><a href="eliminarCliente?id=<%=//c.getId()%>">Eliminar</td> -->
+                                <td><%=r.getTemperatura()%></td>                           
                         </tr>
-                        <% }%>
-                    </table
+                        <%
+                                }
+                            } else {
+                                rEncendidoDAO
+                            }
+                        %>
+                    </table>
                 </td>
             </tr>
         </table>
