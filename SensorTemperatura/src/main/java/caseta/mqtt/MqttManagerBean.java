@@ -85,7 +85,7 @@ public class MqttManagerBean {
             MqttConnectOptions options = new MqttConnectOptions();
             options.setCleanSession(true);
             options.setAutomaticReconnect(true);
-            //options.setWill(Topic.TOPIC_APP_DemoMQTT_LASTWILL, new  String("Good bye cruel world!").getBytes(), 1, false);
+            options.setWill(Topic.TOPIC_APP_DemoMQTT_LASTWILL, new  String("Good bye cruel world!").getBytes(), 1, false);
             mqttClient.connect(options);
             
             System.out.println("  -> MQTTManagerBean.connect ====> Subscribing to "+ this.topicsToSubscribe.size()+" topics...");

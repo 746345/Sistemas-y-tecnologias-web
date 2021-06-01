@@ -61,11 +61,11 @@ public class MqttListener implements MqttCallback {
                 }
                 break;
 
-            case Topic.TOPIC_MSG:
+           /* case Topic.TOPIC_MSG:
                 //
                 // algo habrá que hacer cuando recibamos un mensaje de este topic
                 //
-                break;
+                break;*/
         }
     }
 
