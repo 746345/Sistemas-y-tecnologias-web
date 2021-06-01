@@ -70,7 +70,6 @@ public class MqttListener implements MqttCallback {
                     } else {
                         sonoff.setEstado(false);
                     }
-                    
                 }
                 break;
             case Topic.TOPIC_CAMARA:

@@ -1,10 +1,13 @@
 package caseta.ejb;
 
+import caseta.mqtt.MqttManagerBean;
+import caseta.mqtt.Topic;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 
 import caseta.websocket.WebSocketManager;
+import javax.ejb.EJB;
 
 /**
  *  Iñaki Sánchez   -746345-
@@ -29,6 +32,7 @@ public class Sonoff {
                ws.broadcastMsg("apagado");
            }
         }
+  
     }
     
     @PostConstruct
