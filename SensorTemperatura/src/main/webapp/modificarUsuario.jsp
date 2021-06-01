@@ -38,7 +38,7 @@
                 <td valign="top">           
                     <fieldset><legend>Modificar Usuario <b><%=usuario.getNombre()%></b>:</legend>
                     <table>
-                        <form method="POST" action="<%=response.encodeRedirectURL("modificarProducto")%>">
+                        <form method="POST" action="<%=response.encodeRedirectURL("modificarUsuario")%>">
                             <input type=""hidden name="id" value="<%=usuario.getUsuario()%>">
                               <tr>
                                 <td>Nombre:</td>
