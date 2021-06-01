@@ -13,7 +13,7 @@
 <%
     UsuarioDAO usuarioDAO = null;
     Context ctx = new InitialContext();
-    usuarioDAO = (UsuarioDAO) ctx.lookup("java:global/BD_Proyecto-0.1");
+    usuarioDAO = (UsuarioDAO) ctx.lookup("java:global/SensorTemperatura/UsuarioDAO!caseta.bd.UsuarioDAO");
 
     List<Usuario> listUsuarios = usuarioDAO.findAll();
 %>
