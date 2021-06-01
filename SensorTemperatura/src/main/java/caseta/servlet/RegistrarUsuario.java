@@ -36,11 +36,9 @@ public class RegistrarUsuario extends HttpServlet {
         u.setPwd(pwd);
         u.setNombre(nombre);
         u.setApellido1(apellido);
-        
-        System.out.println("antes de crear el usuario");
 
         usuarioDB.create(u);
-        System.out.println("despues de crear el usuario");
+        
         response.sendRedirect(response.encodeRedirectURL("index.jsp"));
     }
 

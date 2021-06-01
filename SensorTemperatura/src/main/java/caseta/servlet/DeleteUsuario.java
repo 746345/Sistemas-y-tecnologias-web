@@ -26,12 +26,13 @@ public class DeleteUsuario extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        Long id = Long.valueOf(request.getParameter("id"));
+        //Long id = Long.valueOf(request.getParameter("id"));
+        String id = String.valueOf(request.getParameter("id"));
         Usuario u = usuarioDB.find(id);
         if (u != null) {
             usuarioDB.remove(u);
         }
-        // response.sendRedirect(response.encodeRedirectURL(".jsp"));
+        response.sendRedirect(response.encodeRedirectURL("menuUsuario.jsp"));
 
     }
 

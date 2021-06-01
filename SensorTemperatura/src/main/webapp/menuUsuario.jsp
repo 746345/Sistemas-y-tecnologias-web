@@ -20,28 +20,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>CASETA</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>menuUsuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
         >>> <a href="<%=response.encodeRedirectURL("index.jsp")%>">Inicio</a> >>> <b>menuUsuario</b>
         <br>
         <br>
-        <table>
+        
             <tr>
                 <td valign="top">           
                     <fieldset>
                         <legend>Añadir Usuario</legend>
 
                         <table>
-                            <form method="POST" action="addUsuario">
+                            <form method="POST" action="registrarUsuario">
                                 <tr>
                                     <td>Usuario</td>
                                     <td><input name="usuario"></td>
-                                </tr>
-                                <tr>
-                                    <td>Contraseña</td>
-                                    <td><input name="pwd"></td>
                                 </tr>
                                 <tr>
                                     <td>Nombre</td>
@@ -50,6 +49,10 @@
                                 <tr>
                                     <td>Apellido</td>
                                     <td><input name="apellido"></td>
+                                </tr>
+                                <tr>
+                                    <td>Contraseña</td>
+                                    <td><input name="pwd" type="password"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><input type="submit" value="Añadir"></td>
@@ -75,13 +78,13 @@
                             <td><%=u.getNombre() %></td>
                             <td><%=u.getApellido()%><td>                            
                             <td><a href="modificarUsuario.jsp?id=<%=u.getUsuario()%>">Modificar</td>
-                            <td><a href="eliminarUsuario.jsp?id=<%=u.getUsuario()%>">Eliminar</td> 
+                            <td><a href="deleteUsuario?id=<%=u.getUsuario()%>">Eliminar</td>
                         </tr>
                         <% }%>
                     </table>
                 </td>
             </tr>
-        </table>
+       
 
 
     </body>

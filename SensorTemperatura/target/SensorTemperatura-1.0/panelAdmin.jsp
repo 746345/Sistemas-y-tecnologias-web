@@ -63,13 +63,14 @@ form {margin: 0 auto; width: 260px;}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
+        <script type="text/javascript" src="websocket.js"></script>
         <div>
         <h1>CASETA</h1>
         <hr>
         
         <td width ="90%" align="right"/>
-        <b>Panel de Administrador</b>
-        <b>Sesión:</b> <%=session.getId()%>
+        <b>PANEL DE ADMINISTRADOR</b>
+        <b>- Sesión:</b> <%=session.getId()%>
         <br>
         <br>
         
@@ -124,20 +125,15 @@ form {margin: 0 auto; width: 260px;}
         </tr>
         
         <div>
+            <br>
             <hr>
-            <form method="POST">
-                <td width ="90%" align="right">
-                <b>Sesión:</b> <%=session.getId()%>
-                <br>
-
-            </form>
-            <hr>
+            <br>
             <table>
                 <tr>
-                    <td>Usuario</td>
-                    <td>Nombre</td>
-                    <td>Primer Apellido</td>
-                    <td>Contraseña</td>
+                <td><b>Usuario</b></td>
+                <td><b>Nombre</b></td>
+                <td><b>Primer Apellido</b></td>
+                <td><b>Contraseña</b></td>
                </tr>
                 <% for (Usuario u: uu){ %>
                 <tr>
@@ -148,10 +144,16 @@ form {margin: 0 auto; width: 260px;}
                 </tr>
                 <% } %>
             </table>
-            </div>
+            <center>
+            <form method="POST" action="menuUsuario.jsp">
+                <input type="submit" value="Gestionar Usuarios"> 
+            </form>
+            </center>
+        </div>
         
         <br>
         <br>
+        <hr>
         <center>
             <form method="POST" action="cerrarSesion">
                 <input type="submit" value="Cerrar sesión"> 
