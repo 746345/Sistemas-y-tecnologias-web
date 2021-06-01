@@ -4,6 +4,7 @@
     2021
 --%>
 
+<%@page import="caseta.util.FormateoTiempo"%>
 <%@page import="java.util.List"%>
 <%@page import="caseta.bd.RegistroAcceso"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -16,6 +17,8 @@
     rAccesoDAO = (RegistroAccesoDAO) ctx.lookup("java:global/SensorTemperatura/RegistroAccesoDAO!caseta.bd.RegistroAccesoDAO");
 
     List<RegistroAcceso> listRegistroAccesos = rAccesoDAO.findAll();
+    FormateoTiempo ft = new FormateoTiempo();
+
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +30,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
-        >>> <a href="<%=response.encodeRedirectURL("index.jsp")%>">Inicio</a> >>> <b>menuRegistroAcceso</b>
+        >>> <a href="<%=response.encodeRedirectURL("panelCtrl.jsp")%>">Inicio</a> >>> <b>menuRegistroAcceso</b>
         <br>
         <br>
         <table>
@@ -45,18 +48,23 @@
                                 for (RegistroAcceso r : listRegistroAccesos) {%>
                         <tr>
                             <td><%=r.getUsuario().toString()%></td>
-                            <td><%=r.getFecha()%></td>
-                            <td><% if (r.getEstadoSonoff()) {
-                                %>Encendido
-                                <% } else {
-                                %>Apagado
-                            <% } %><td>                            
+                            <td><%=ft.getDDMMYYYY(r.getFecha()) + " " + ft.getHHMMSS(r.getFecha())%></td>
+                            <td><%=r.getEstadoSonoff()%></td>
+                        </tr>
+                        <%
+                            }
+                        } else {
+                            for (RegistroAcceso r : listRegistroAccesos) {
+                                if (r.getUsuario().toString().equals(usuario)) {%>
+                        <tr>
+                            <td><%=r.getUsuario().toString()%></td>
+                            <td><%=ft.getDDMMYYYY(r.getFecha()) + " " + ft.getHHMMSS(r.getFecha())%></td>
+                            <td><%=r.getEstadoSonoff()%></td>
                         </tr>
                         <%
                                 }
-                            } else {
-                                rAccesoDAO.getTablaRegistros(usuario);
                             }
+                        }
                         %>
                     </table>
                 </td>

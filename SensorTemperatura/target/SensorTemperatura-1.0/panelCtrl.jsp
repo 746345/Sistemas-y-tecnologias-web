@@ -101,7 +101,15 @@ form {margin: 0 auto; width: 260px;}
                 <legend>Vídeo</legend>
                 </fieldset>
             </td>
-            
+            <td valign="top">
+                <fieldset>
+                <legend>Registros</legend>
+                <a href="menuRegistroAcceso.jsp">Menu Accesos</a><br>
+                <a href="menuRegistroEncendido.jsp">Menu Encendidos</a><br>
+                <a href="menuRegistroTemp.jsp">Menu Temperaturas</a>                
+                </fieldset>
+                
+            </td>
             
             
             

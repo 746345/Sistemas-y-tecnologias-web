@@ -42,16 +42,7 @@ public class Raspberry {
         if (ws!=null){
             ws.sendValor(this.temp);
         }
-        if(sonoff.getEstado() && temp >= TEMP_APAGADO){
-            sonoff.setEstado(false);
-            mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
-            mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
-           
-        }else if(!sonoff.getEstado() && temp <= TEMP_ENCENDIDO){
-            sonoff.setEstado(true);
-            mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
-            mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
-        }
+        evaluarTemperatura();
     }
 
     public Double getPress() {
@@ -81,6 +72,18 @@ public class Raspberry {
         this.TEMP_APAGADO = TEMP_APAGADO;
     }
     
+    public void evaluarTemperatura(){
+        if(sonoff.getEstado() && temp >= TEMP_APAGADO){
+            sonoff.setEstado(false);
+            mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
+            mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
+           
+        }else if(!sonoff.getEstado() && temp <= TEMP_ENCENDIDO){
+            sonoff.setEstado(true);
+            mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
+            mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
+        }
+    }
     
     public void guardarTemperatura(Double temperatura){
         RegistroTemp rTemp = new RegistroTemp();

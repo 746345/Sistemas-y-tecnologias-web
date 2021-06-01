@@ -50,7 +50,7 @@
                                 for (RegistroEncendido r : listRegistroEncendidos) {%>
                         <tr>
                             <td><%=r.getUsuario().toString()%></td>
-                            <td><%=ft.getDDMMYYYY(r.getFecha())%></td>
+                            <td><%=ft.getDDMMYYYY(r.getFecha()) + " " + ft.getHHMMSS(r.getFecha())%></td>
                             <td><%=r.getEstadoSonoffPrevio()%></td>
                             <td><%=r.getTemperatura()%></td>                           
                         </tr>
@@ -61,7 +61,7 @@
                                 if (r.getUsuario().toString().equals(usuario)) {%>
                         <tr>
                             <td><%=r.getUsuario().toString()%></td>
-                            <td><%=ft.getDDMMYYYY(r.getFecha())%></td>
+                            <td><%=ft.getDDMMYYYY(r.getFecha()) + " " + ft.getHHMMSS(r.getFecha())%></td>
                             <td><%=r.getEstadoSonoffPrevio()%></td>
                             <td><%=r.getTemperatura()%></td>                           
                         </tr>

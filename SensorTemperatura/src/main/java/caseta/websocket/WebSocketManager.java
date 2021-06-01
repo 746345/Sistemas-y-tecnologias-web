@@ -74,9 +74,7 @@ public class WebSocketManager {
        try {
             for (Session session : sessions) {
                 session.getBasicRemote().sendText(_message);
-
                 if(_message == "encender" && _message == "apagar"){
-                    RegistroEncendido rEncendido = new RegistroEncendido();
                     switch (_message){
                     case "encender":
                         sonoff.setEstado(true);

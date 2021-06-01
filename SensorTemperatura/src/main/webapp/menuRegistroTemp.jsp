@@ -4,6 +4,7 @@
     2021
 --%>
 
+<%@page import="caseta.util.FormateoTiempo"%>
 <%@page import="java.util.List"%>
 <%@page import="caseta.bd.RegistroTemp"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -16,18 +17,20 @@
     rTempDAO = (RegistroTempDAO) ctx.lookup("java:global/SensorTemperatura/RegistroTempDAO!caseta.bd.RegistroTempDAO");
 
     List<RegistroTemp> listRegistroTemps = rTempDAO.findAll();
+        FormateoTiempo ft = new FormateoTiempo();
+
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>menuRegistroEncendido</title>
+        <title>menuRegistroTemperaturas</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
-        >>> <a href="<%=response.encodeRedirectURL("index.jsp")%>">Inicio</a> >>> <b>menuRegistroEncendidos</b>
+        >>> <a href="<%=response.encodeRedirectURL("panelCtrl.jsp")%>">Inicio</a> >>> <b>menuRegistroTemperaturas</b>
         <br>
         <br>
         <table>
@@ -39,19 +42,12 @@
                             <td>Temperatura</td>
                         </tr>
                         <%
-                            String usuario = (String) session.getAttribute("usuario");
-                            if (usuario.equals("admin")) {
                                 for (RegistroTemp r : listRegistroTemps) {%>
                         <tr>
-                            <td><%=r.getFecha()%></td>
-                            <td><%=r.getTemperatura()%></td>
+                            <td><%=ft.getDDMMYYYY(r.getFecha()) + " " + ft.getHHMMSS(r.getFecha())%></td>
+                            <td><%=r.getTemperatura()%></td>                           
                         </tr>
-                        <%
-                                }
-                            } else {
-                                rTempDAO.getTablaRegistros(usuario);
-                            }
-                        %>
+                       <%}%>
                     </table>
                 </td>
             </tr>

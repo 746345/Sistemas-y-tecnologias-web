@@ -95,6 +95,7 @@ form {margin: 0 auto; width: 260px;}
                             <td>
                                 <center>
                                 <form method="POST" id="sonoff" action="switchSonoff">
+                                    <input type="hidden" name="usuario" value="${usuario}">
                                     <button type="submit" form="sonoff" name="on" value="ON" <%=onDisabled%>>ON</button> 
                                     <button type="submit" form="sonoff" name="off" value="OFF" <%=offDisabled%>>OFF</button> 
                                 </form>
