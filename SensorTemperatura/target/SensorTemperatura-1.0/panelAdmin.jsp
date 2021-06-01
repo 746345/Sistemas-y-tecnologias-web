@@ -134,10 +134,9 @@ form {margin: 0 auto; width: 260px;}
             <hr>
             <table>
                 <tr>
-                    <td>DNI</td>
+                    <td>Usuario</td>
                     <td>Nombre</td>
                     <td>Primer Apellido</td>
-                    <td>Segundo Apellido</td>
                     <td>Contraseña</td>
                </tr>
                 <% for (Usuario u: uu){ %>
