@@ -73,6 +73,7 @@ form {margin: 0 auto; width: 260px;}
                             <td>
                                 <center>
                                 <form method="POST" id="sonoff" action="switchSonoff">
+                                    <input type="hidden" name="usuario" value="${usuario}">
                                     <button type="submit" form="sonoff" name="on" value="ON" <%=onDisabled%>>ON</button> 
                                     <button type="submit" form="sonoff" name="off" value="OFF" <%=offDisabled%>>OFF</button> 
                                 </form>
@@ -102,25 +103,7 @@ form {margin: 0 auto; width: 260px;}
             </td>
             
             
-            <td valign="top">
-                <fieldset>
-                    <legend>(Borrar)</legend>
-                    <br>
-
-                    <center>
-                    <canvas id="ledBombilla" width="50" height="50" style="border:1px solid #d3d3d3;">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                    <br>
-                    <b><div style="font-size: 20px;">Estado: </div><div id="bombillaON" style="font-size: 20px;">? ? ?</div></b>
-                    <br>
-                    <form method="POST" id="sonoff" action="switchSonoff">
-                        <button type="submit" form="sonoff" name="on" value="ON" id="encender" onclick="encender();">Encender</button> 
-                        <button type="submit" form="sonoff" name="off" value="OFF" id="apagar" onclick="apagar();">Apagar</button>
-                    </form>
-                    </center>
-                </fieldset>
-            </td>
+            
             
             
         </tr>

@@ -80,27 +80,9 @@ public class WebSocketManager {
                     switch (_message){
                     case "encender":
                         sonoff.setEstado(true);
-                        
-                        rEncendido.setEstadoSonoffPrevio(false);
-                        rEncendido.setFecha(System.currentTimeMillis());
-                        rEncendido.setTemperatura(rpi.getTemp());
-
-                        String usuarioAux = (String) session.
-                        rEncendido.setUsuario();
-                        
-                        
-                        //rEncendido.setUsuario(session.get);    //por hacer
-                        
-                        
-                        
                         break;
                     case "apagar":
                         sonoff.setEstado(false);
-                        rEncendido.setEstadoSonoffPrevio(true);
-                        rEncendido.setFecha(System.currentTimeMillis());
-                        rEncendido.setTemperatura(rpi.getTemp());
-                        
-                        //rEncendido.setUsuario(session.);    //por hacer
                         break;
                     }
                 }else{

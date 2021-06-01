@@ -4,6 +4,9 @@
     2021
 --%>
 
+<%@page import="caseta.bd.UsuarioDAO"%>
+<%@page import="caseta.bd.Usuario"%>
+<%@page import="caseta.util.FormateoTiempo"%>
 <%@page import="java.util.List"%>
 <%@page import="caseta.bd.RegistroEncendido"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -16,6 +19,7 @@
     rEncendidoDAO = (RegistroEncendidoDAO) ctx.lookup("java:global/SensorTemperatura/RegistroEncendidoDAO!caseta.bd.RegistroEncendidoDAO");
 
     List<RegistroEncendido> listRegistroEncendidos = rEncendidoDAO.findAll();
+    FormateoTiempo ft = new FormateoTiempo();
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +31,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
-        >>> <a href="<%=response.encodeRedirectURL("index.jsp")%>">Inicio</a> >>> <b>menuRegistroEncendidos</b>
+        >>> <a href="<%=response.encodeRedirectURL("panelCtrl.jsp")%>">Inicio</a> >>> <b>menuRegistroEncendidos</b>
         <br>
         <br>
         <table>
@@ -46,19 +50,25 @@
                                 for (RegistroEncendido r : listRegistroEncendidos) {%>
                         <tr>
                             <td><%=r.getUsuario().toString()%></td>
-                            <td><%=r.getFecha()  %></td>
-                            <td><% if(r.getEstadoSonoffPrevio()){ 
-                                %>Encendido
-                                <% }else{
-                                %>Apagado
-                                <%}%><td>  
-                                <td><%=r.getTemperatura()%></td>                           
+                            <td><%=ft.getDDMMYYYY(r.getFecha())%></td>
+                            <td><%=r.getEstadoSonoffPrevio()%></td>
+                            <td><%=r.getTemperatura()%></td>                           
+                        </tr>
+                        <%
+                            }
+                        } else {
+                            for (RegistroEncendido r : listRegistroEncendidos) {
+                                if (r.getUsuario().toString().equals(usuario)) {%>
+                        <tr>
+                            <td><%=r.getUsuario().toString()%></td>
+                            <td><%=ft.getDDMMYYYY(r.getFecha())%></td>
+                            <td><%=r.getEstadoSonoffPrevio()%></td>
+                            <td><%=r.getTemperatura()%></td>                           
                         </tr>
                         <%
                                 }
-                            } else {
-                                rEncendidoDAO.getTablaRegistros(usuario);
                             }
+                        }
                         %>
                     </table>
                 </td>

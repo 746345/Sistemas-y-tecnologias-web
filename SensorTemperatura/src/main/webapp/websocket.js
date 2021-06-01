@@ -77,6 +77,7 @@ openSocket();
            
                 
 function encender(){
+    
     webSocket.send("encender");
 }
 function apagar(){

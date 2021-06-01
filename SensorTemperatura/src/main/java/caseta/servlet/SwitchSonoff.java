@@ -1,6 +1,10 @@
-
 package caseta.servlet;
 
+import caseta.bd.RegistroEncendido;
+import caseta.bd.RegistroEncendidoDAO;
+import caseta.bd.Usuario;
+import caseta.bd.UsuarioDAO;
+import caseta.ejb.Raspberry;
 import caseta.ejb.Sonoff;
 import caseta.mqtt.MqttManagerBean;
 import caseta.mqtt.Topic;
@@ -13,16 +17,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *  Iñaki Sánchez   -746345-
- *  Sistemas y Tecnologías Web
- *  2021
+ * Iñaki Sánchez -746345- Sistemas y Tecnologías Web 2021
  */
 @WebServlet(name = "SwitchSonoff", urlPatterns = {"/switchSonoff"})
 public class SwitchSonoff extends HttpServlet {
 
-    @EJB MqttManagerBean mqttManager;
-    @EJB Sonoff sonoff;
-    
+    @EJB
+    MqttManagerBean mqttManager;
+    @EJB
+    Sonoff sonoff;
+    @EJB Raspberry rpi;
+    @EJB RegistroEncendidoDAO rEncendidoDB;
+    @EJB UsuarioDAO usuarioDB;
+
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,21 +45,49 @@ public class SwitchSonoff extends HttpServlet {
 
         String on;
         String off;
-        
+
         on = request.getParameter("on");
         off = request.getParameter("off");
 
-        if (on!=null){
+        if (on != null) {
             sonoff.setEstado(true);
-        }else{
+            String _usuario = request.getParameter("usuario");
+
+            System.out.println(" antres de buscar usuario " + _usuario);
+            
+            Usuario usuario = usuarioDB.find(_usuario);
+            System.out.println(" despues de buscar usuario");
+
+            if (usuario != null) {
+                System.out.println(" usuario not null");
+
+                RegistroEncendido rEncendido = new RegistroEncendido();
+                rEncendido.setUsuario(usuario);
+                rEncendido.setFecha(System.currentTimeMillis());
+                rEncendido.setEstadoSonoffPrevio(true); //buscar devolver el estado del sonoff
+                System.out.println(" antes de crear entrada");
+                rEncendido.setTemperatura(rpi.getTemp());
+                rEncendidoDB.create(rEncendido);
+                                System.out.println(" despeus de crear entrada");
+
+            } else {
+                request.getSession(true).setAttribute("mensaje", "Usuario no encontrado");
+
+            }
+        } else {
             sonoff.setEstado(false);
+                                            System.out.println(" falso");
+
+            
         }
+                                        System.out.println(" antes de mqtt");
+
         mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
         mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
-        
-        
+                                        System.out.println(" despues de mqtt");
+
         response.sendRedirect(response.encodeURL("panelCtrl.jsp"));
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

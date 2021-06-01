@@ -34,6 +34,7 @@ public class RegistroEncendido implements Serializable {
 
     public void setFecha(Long fecha) {
         this.fecha = fecha;
+        System.out.println("caseta.bd.RegistroEncendido.setFecha()");
     }
 
     public double getTemperatura() {
