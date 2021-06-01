@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
  *  Sistemas y Tecnologías Web
  *  2021
  */
+@Stateless
 public class RegistroAccesoDAO extends AbstractFacade<RegistroAcceso>{
     
     @PersistenceContext(unitName = "stw_proyecto")

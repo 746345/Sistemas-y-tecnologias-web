@@ -1,5 +1,6 @@
 package caseta.bd;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -8,6 +9,7 @@ import javax.persistence.PersistenceContext;
  *  Sistemas y Tecnologías Web
  *  2021
  */
+@Stateless
 public class RegistroEncendidoDAO extends AbstractFacade<RegistroEncendido>{
     
     @PersistenceContext(unitName = "stw_proyecto")

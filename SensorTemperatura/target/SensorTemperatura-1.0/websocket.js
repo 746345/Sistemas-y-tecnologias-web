@@ -4,20 +4,21 @@
  * and open the template in the editor.
  */
 
-var wsUri = "ws://" + document.location.host + document.location.pathname + "endpoint";
+//var wsUri = "ws://" + document.location.host + document.location.pathname + "endpoint";
+var wsUri = "ws://" + document.location.host + "/SensorTemperatura/endpoint";
 var webSocket;
 
 // Elementos IU
 var bombillaON = document.getElementById("bombillaON");
 var bON = document.getElementById("ledBombilla");
 var ledBombilla = bON.getContext("2d");
-var tempCPU = document.getElementById("tempCPU");
+var temp = document.getElementById("temp");
 
 // Botones
-var encenderBombilla = document.getElementById("encender");
-var apagarBombilla = document.getElementById("apagar");
-encenderBombilla.disabled = true;
-apagarBombilla.disabled = true;
+var encender = document.getElementById("encender");
+var apagar = document.getElementById("apagar");
+encender.disabled = true;
+apagar.disabled = true;
 
 var bombillaEncendida  = false;
 
@@ -35,7 +36,7 @@ openSocket();
     
     webSocket = new WebSocket(wsUri);
     
-    encenderBombilla.disabled = false;
+    encender.disabled = false;
     /**
      * Binds functions to the listeners for the websocket.
      */
@@ -50,17 +51,17 @@ openSocket();
         var msg = event.data;
         console.log("==== "+msg);
         if (msg==="apagado"){
-            encenderBombilla.disabled = false;
-            apagarBombilla.disabled = true;
+            encender.disabled = false;
+            apagar.disabled = true;
             bombillaEncendida = false;
             updateEstadoBombilla(bombillaEncendida);
         }else if (msg==="encendido"){
-            encenderBombilla.disabled = true;
-            apagarBombilla.disabled = false;
+            encender.disabled = true;
+            apagar.disabled = false;
             bombillaEncendida = true;
             updateEstadoBombilla(bombillaEncendida);
         } else {
-            updateTemperaturaCPU(msg);
+            updateTemperatura(msg);
         }
         
     };
@@ -75,10 +76,10 @@ openSocket();
 } 
            
                 
-function encenderBombilla(){
+function encender(){
     webSocket.send("encender");
 }
-function apagarBombilla(){
+function apagar(){
     webSocket.send("apagar");
 }
 
@@ -91,19 +92,19 @@ function closeSocket(){
     webSocket.close();
 }
 
-function updateTemperaturaCPU(_tempCPU){
-    var temp = parseFloat(_tempCPU);
-    tempCPU.innerHTML = temp;
+function updateTemperatura(_temp){
+    var tmp = parseFloat(_temp);
+    temp.innerHTML = tmp;
 }
 
 function updateEstadoBombilla(_nuevoEstado){
     ledBombilla.beginPath();
     bombillaEncendida = _nuevoEstado;
     if (bombillaEncendida === true){
-        bombillaON.innerHTML="ON";
+        bombillaON.innerHTML="ENCENDIDO";
         ledBombilla.fillStyle = "#00FF00"; //("green");
     }else{
-        bombillaON.innerHTML="OFF";
+        bombillaON.innerHTML="APAGADO";
         ledBombilla.fillStyle = "#FF0000"; //("red");
     }
     ledBombilla.arc(25,25, 20, 0, 2 * Math.PI);

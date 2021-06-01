@@ -1,5 +1,6 @@
 package caseta.bd;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -9,6 +10,7 @@ import javax.persistence.Query;
  *  Sistemas y Tecnologías Web
  *  2021
  */
+@Stateless
 public class UsuarioDAO extends AbstractFacade<Usuario>{
    
     @PersistenceContext(unitName = "stw_proyecto")
@@ -19,7 +21,7 @@ public class UsuarioDAO extends AbstractFacade<Usuario>{
         return em;
     }
     
-     public UsuarioDAO(Class<Usuario> entityClass) {
+     public UsuarioDAO() {
         super(Usuario.class);
     }
      
