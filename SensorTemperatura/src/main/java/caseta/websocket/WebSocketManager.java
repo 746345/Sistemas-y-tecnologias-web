@@ -5,6 +5,7 @@
  */
 package caseta.websocket;
 
+import caseta.bd.RegistroEncendido;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
@@ -75,12 +76,27 @@ public class WebSocketManager {
                 session.getBasicRemote().sendText(_message);
 
                 if(_message == "encender" && _message == "apagar"){
+                    RegistroEncendido rEncendido = new RegistroEncendido();
                     switch (_message){
                     case "encender":
                         sonoff.setEstado(true);
+                        
+                        rEncendido.setEstadoSonoffPrevio(false);
+                        rEncendido.setFecha(System.currentTimeMillis());
+                        rEncendido.setTemperatura(rpi.getTemp());
+                        
+                        //rEncendido.setUsuario(session.get);    //por hacer
+                        
+                        
+                        
                         break;
                     case "apagar":
                         sonoff.setEstado(false);
+                        rEncendido.setEstadoSonoffPrevio(true);
+                        rEncendido.setFecha(System.currentTimeMillis());
+                        rEncendido.setTemperatura(rpi.getTemp());
+                        
+                        //rEncendido.setUsuario(session.);    //por hacer
                         break;
                     }
                 }else{

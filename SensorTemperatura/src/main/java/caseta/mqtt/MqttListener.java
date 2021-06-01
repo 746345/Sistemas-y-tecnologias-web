@@ -3,6 +3,8 @@
  */
 package caseta.mqtt;
 
+import caseta.bd.RegistroEncendido;
+import caseta.bd.RegistroTemp;
 import com.google.gson.Gson;
 import caseta.sensorRpi.Sensor;
 import caseta.ejb.Raspberry;
@@ -27,7 +29,7 @@ public class MqttListener implements MqttCallback {
     public MqttListener() {
         try {
             InitialContext ic = new InitialContext();
-            rpi = (Raspberry) ic.lookup("java:global/SensorTemperatura/Raspberry");
+            rpi = (Raspberry) ic.lookup("java:global/SensorTemperatura/Raspberry!caseta.ejb.Raspberry");
             sonoff = (Sonoff) ic.lookup("java:global/SensorTemperatura/Sonoff");
         } catch (NamingException ex) {
             Logger.getLogger(MqttListener.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,17 +49,26 @@ public class MqttListener implements MqttCallback {
                 // actualizamos el estado de la RPi.
                 Gson gson = new Gson();
                 Sensor rpiDto = gson.fromJson(payload, Sensor.class);
-                rpi.setTemp(rpiDto.getTemp());
+                
+                Double temperatura = rpiDto.getTemp();
+                rpi.setTemp(temperatura);
                 rpi.setPress(rpiDto.getPress());
+                
+                RegistroTemp rTemp = new RegistroTemp();
+                rTemp.setTemperatura(temperatura);
+                rTemp.setFecha(System.currentTimeMillis());
+                
                 break;
             case Topic.TOPIC_SONOFF_STAT_POWER:
                 // actualizamos el estado. Ha podido ser modificado por otro cliente.
                 if (sonoff != null) {
                     if (payload.equals("ON")) {
                         sonoff.setEstado(true);
+          
                     } else {
                         sonoff.setEstado(false);
                     }
+                    
                 }
                 break;
 

@@ -25,7 +25,7 @@ form {margin: 0 auto; width: 260px;}
             <input name="nombre">
             <br>
             <label><b>Introducir primer apellido</b></label>
-            <input name="ap1">
+            <input name="apellido">
             <br>
             <label><b>Introducir contraseña</b></label>
             <input name="pwd" type="password">

@@ -5,10 +5,10 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="proyecto.bd.Usuario"%>
+<%@page import="caseta.bd.Usuario"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="javax.naming.Context"%>
-<%@page import="proyecto.bd.UsuarioDAO"%>
+<%@page import="caseta.bd.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     UsuarioDAO usuarioDAO = null;

@@ -25,20 +25,22 @@ public class RegistrarUsuario extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8"); 
-        
+        System.out.println("antes de recibir parametros");
         String usuario = request.getParameter("usuario");
         String pwd = request.getParameter("pwd");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-        
+        System.out.println("antes de recibir parametros");
         Usuario u = new Usuario();
         u.setUsuario(usuario);
         u.setPwd(pwd);
         u.setNombre(nombre);
         u.setApellido1(apellido);
+        
+        System.out.println("antes de crear el usuario");
 
         usuarioDB.create(u);
-        
+        System.out.println("despues de crear el usuario");
         response.sendRedirect(response.encodeRedirectURL("index.jsp"));
     }
 

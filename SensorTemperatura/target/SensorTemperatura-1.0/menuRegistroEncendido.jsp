@@ -5,10 +5,10 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="proyecto.bd.RegistroEncendido"%>
+<%@page import="caseta.bd.RegistroEncendido"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="javax.naming.Context"%>
-<%@page import="proyecto.bd.RegistroEncendidoDAO"%>
+<%@page import="caseta.bd.RegistroEncendidoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     RegistroEncendidoDAO rEncendidoDAO = null;
