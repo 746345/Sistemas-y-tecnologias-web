@@ -11,6 +11,8 @@ caseta\bd\RegistroAccesoDAO.class
 caseta\mqtt\MqttListener.class
 caseta\bd\FicheroDBFacade.class
 caseta\bd\RegistroEncendidoDAO.class
+caseta\servlet\ModificarUsuario.class
+caseta\ejb\Camara.class
 caseta\bd\RegistroEncendido.class
 caseta\ejb\Starter.class
 caseta\bd\AbstractFacade.class
@@ -24,8 +26,10 @@ caseta\servlet\AddRegistroTemperatura.class
 caseta\ejb\Sonoff.class
 caseta\servlet\CerrarSesion.class
 caseta\servlet\DeleteRegistroAcceso.class
+caseta\webService\CamaraWebService.class
 caseta\bd\RegistroTempDAO.class
 caseta\mqtt\Topic.class
+caseta\util\FormateoTiempo.class
 caseta\bd\RegistroTemp.class
 caseta\servlet\GetFile.class
 caseta\bd\Usuario.class

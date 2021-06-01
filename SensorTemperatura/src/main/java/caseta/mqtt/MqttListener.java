@@ -56,9 +56,7 @@ public class MqttListener implements MqttCallback {
                 rpi.setTemp(temperatura);
                 rpi.setPress(rpiDto.getPress());
                 
-                RegistroTemp rTemp = new RegistroTemp();
-                rTemp.setTemperatura(temperatura);
-                rTemp.setFecha(System.currentTimeMillis());
+                rpi.guardarTemperatura(temperatura);
                 
                 break;
             case Topic.TOPIC_SONOFF_STAT_POWER:

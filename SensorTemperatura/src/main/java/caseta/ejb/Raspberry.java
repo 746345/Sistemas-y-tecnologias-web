@@ -3,6 +3,8 @@
  */
 package caseta.ejb;
 
+import caseta.bd.RegistroTemp;
+import caseta.bd.RegistroTempDAO;
 import caseta.mqtt.MqttManagerBean;
 import caseta.mqtt.Topic;
 import caseta.websocket.WebSocketManager;
@@ -24,6 +26,7 @@ public class Raspberry {
     private Double TEMP_APAGADO = 23.00;
     @EJB Sonoff sonoff;
     @EJB MqttManagerBean mqttManager;
+    @EJB RegistroTempDAO tempDB;
 
     @PostConstruct
     public void init(){
@@ -79,7 +82,12 @@ public class Raspberry {
     }
     
     
-    
+    public void guardarTemperatura(Double temperatura){
+        RegistroTemp rTemp = new RegistroTemp();
+        rTemp.setTemperatura(temperatura);
+        rTemp.setFecha(System.currentTimeMillis());
+        tempDB.create(rTemp);
+    }
     public String toJson(){
         Gson gson = new Gson();
         return gson.toJson(this);
