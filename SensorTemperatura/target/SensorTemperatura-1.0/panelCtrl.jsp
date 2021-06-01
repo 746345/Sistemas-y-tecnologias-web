@@ -41,6 +41,7 @@ form {margin: 0 auto; width: 260px;}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     </head>
     <body>
+        <script type="text/javascript" src="websocket.js"></script>
         <div>
         <h1>CASETA</h1>
         <hr>
