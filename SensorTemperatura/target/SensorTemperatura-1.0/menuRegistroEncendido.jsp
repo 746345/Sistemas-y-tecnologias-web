@@ -57,7 +57,7 @@
                         <%
                                 }
                             } else {
-                                rEncendidoDAO
+                                rEncendidoDAO.getTablaRegistros(usuario);
                             }
                         %>
                     </table>

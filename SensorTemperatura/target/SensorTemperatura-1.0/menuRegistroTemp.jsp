@@ -37,18 +37,35 @@
                         <tr style="background-color:blue; color:white">
                             <td>Fecha</td>
                             <td>Temperatura</td>
-                            <!--<td></td>
-                            <td></td>-->
                         </tr>
                         <% for (RegistroTemp r : listRegistroTemps) {%>
                         <tr>
                             <td><%=r.getFecha()%></td>
                             <td><%=r.getTemperatura()%></td>
-                            <!--<td><a href="verPedidosDeCliente.jsp?id=<%=//c.getId()%>">Mostrar Pedidos</td>
-                            <td><a href="eliminarCliente?id=<%=//c.getId()%>">Eliminar</td> -->
                         </tr>
                         <% }%>
-                    </table
+                    </table>
+                    <table border="1">
+                        <tr style="background-color:blue; color:white">
+                            <td>Usuario</td>
+                            <td>Fecha</td>
+                            <td>Estado Sonoff</td>
+                        </tr>
+                        <%
+                            String usuario = (String) session.getAttribute("usuario");
+                            if (usuario.equals("admin")) {
+                                for (RegistroTemp r : listRegistroTemps) {%>
+                        <tr>
+                            <td><%=r.getFecha()%></td>
+                            <td><%=r.getTemperatura()%></td>
+                        </tr>
+                        <%
+                                }
+                            } else {
+                                rTempDAO.getTablaRegistros(usuario);
+                            }
+                        %>
+                    </table>
                 </td>
             </tr>
         </table>
