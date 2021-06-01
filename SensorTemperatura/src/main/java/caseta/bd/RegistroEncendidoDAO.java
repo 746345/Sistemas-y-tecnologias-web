@@ -1,5 +1,6 @@
 package caseta.bd;
 
+import caseta.util.FormateoTiempo;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +13,7 @@ public class RegistroEncendidoDAO extends AbstractFacade<RegistroEncendido> {
 
     @PersistenceContext(unitName = "stw_proyecto")
     private EntityManager em;
+    private FormateoTiempo fm;
 
     @Override
     protected EntityManager getEntityManager() {
@@ -27,7 +29,7 @@ public class RegistroEncendidoDAO extends AbstractFacade<RegistroEncendido> {
         html += "<tr><th>Usuario</th><th>Fecha</th><th>Estado Sonoff</th><th>Temperatura</th>";
         for (RegistroEncendido r : findAll()) {
             html += "<td>" + r.getUsuario().toString() + "</td>";
-            html += "<td>" + r.getFecha() + "</td>";
+            html += "<td>" + fm.getHHMMSS(r.getFecha()) + "</td>";
             html += "<td>" + r.getEstadoSonoffPrevio() + "</td>";
             html += "<td>" + r.getTemperatura() + "</td>";
         }

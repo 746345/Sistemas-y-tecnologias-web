@@ -84,6 +84,10 @@ public class WebSocketManager {
                         rEncendido.setEstadoSonoffPrevio(false);
                         rEncendido.setFecha(System.currentTimeMillis());
                         rEncendido.setTemperatura(rpi.getTemp());
+
+                        String usuarioAux = (String) session.
+                        rEncendido.setUsuario();
+                        
                         
                         //rEncendido.setUsuario(session.get);    //por hacer
                         
