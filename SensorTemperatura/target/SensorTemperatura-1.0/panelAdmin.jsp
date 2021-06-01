@@ -1,3 +1,9 @@
+<%-- 
+    Document   : panelAdmin
+    Created on : 01-may-2021, 20:06:12
+    Author     : Jesus
+--%>
+
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="caseta.ejb.Raspberry"%>
 <%@page import="caseta.ejb.Sonoff"%>

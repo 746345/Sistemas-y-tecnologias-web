@@ -1,3 +1,10 @@
+<%-- 
+    Document   : panelCtrl
+    Created on : 01-may-2021, 20:04:32
+    Author     : Jesus
+--%>
+
+
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="caseta.ejb.Raspberry"%>
 <%@page import="caseta.ejb.Sonoff"%>
@@ -47,7 +54,7 @@ form {margin: 0 auto; width: 260px;}
         <hr>
         
         <td width ="90%" align="right"/>
-        <b>¡ Hola </b>${usuario}<b> !</b>
+        <b>¡Hola, </b><i>${usuario}</i><b>!</b>
         <b>Sesión:</b> <%=session.getId()%>
         <br>
         <br>
