@@ -27,7 +27,7 @@ public class Starter {
         
         mqtt.addTopicToSubscribe(Topic.TOPIC_RPI_SENSORS);
         mqtt.addTopicToSubscribe(Topic.TOPIC_SONOFF_STAT_POWER);
-        //mqtt.addTopicToSubscribe(Topic.TOPIC_MSG);
+        mqtt.addTopicToSubscribe(Topic.TOPIC_CAMARA);
         mqtt.connectToMqttBroker();
     }
 

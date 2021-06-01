@@ -105,7 +105,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto.bd.Usuario[ usuario=" + usuario + " ]";
+        return "caseta.bd.Usuario[ usuario=" + usuario + " ]";
     }
     
 }

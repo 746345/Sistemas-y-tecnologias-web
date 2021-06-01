@@ -82,7 +82,7 @@ public class RegistroAcceso implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto.bd.RegistroAcceso[ id=" + id + " ]";
+        return "caseta.bd.RegistroAcceso[ id=" + id + " ]";
     }
     
 }

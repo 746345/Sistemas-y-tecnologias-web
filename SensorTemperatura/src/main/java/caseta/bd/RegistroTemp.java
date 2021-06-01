@@ -76,7 +76,7 @@ public class RegistroTemp implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto.bd.registroTemp[ id=" + id + " ]";
+        return "caseta.bd.registroTemp[ id=" + id + " ]";
     }
     
 }

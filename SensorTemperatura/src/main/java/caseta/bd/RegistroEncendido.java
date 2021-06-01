@@ -92,7 +92,7 @@ public class RegistroEncendido implements Serializable {
 
     @Override
     public String toString() {
-        return "proyecto.bd.RegistroEncendido[ id=" + id + " ]";
+        return "caseta.bd.RegistroEncendido[ id=" + id + " ]";
     }
     
 }
