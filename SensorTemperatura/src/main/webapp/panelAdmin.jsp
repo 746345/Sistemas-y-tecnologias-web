@@ -144,6 +144,7 @@ form {margin: 0 auto; width: 260px;}
                 </tr>
                 <% } %>
             </table>
+            <br>
             <center>
             <form method="POST" action="menuUsuario.jsp">
                 <input type="submit" value="Gestionar Usuarios"> 
@@ -154,6 +155,7 @@ form {margin: 0 auto; width: 260px;}
         <br>
         <br>
         <hr>
+        <br>
         <center>
             <form method="POST" action="cerrarSesion">
                 <input type="submit" value="Cerrar sesión"> 

@@ -53,22 +53,17 @@ public class SwitchSonoff extends HttpServlet {
             sonoff.setEstado(true);
             String _usuario = request.getParameter("usuario");
 
-            System.out.println(" antres de buscar usuario " + _usuario);
             
             Usuario usuario = usuarioDB.find(_usuario);
-            System.out.println(" despues de buscar usuario");
 
             if (usuario != null) {
-                System.out.println(" usuario not null");
 
                 RegistroEncendido rEncendido = new RegistroEncendido();
                 rEncendido.setUsuario(usuario);
                 rEncendido.setFecha(System.currentTimeMillis());
                 rEncendido.setEstadoSonoffPrevio(true); //buscar devolver el estado del sonoff
-                System.out.println(" antes de crear entrada");
                 rEncendido.setTemperatura(rpi.getTemp());
                 rEncendidoDB.create(rEncendido);
-                                System.out.println(" despeus de crear entrada");
 
             } else {
                 request.getSession(true).setAttribute("mensaje", "Usuario no encontrado");
@@ -76,16 +71,14 @@ public class SwitchSonoff extends HttpServlet {
             }
         } else {
             sonoff.setEstado(false);
-                                            System.out.println(" falso");
-
             
         }
-                                        System.out.println(" antes de mqtt");
 
         mqttManager.publish(Topic.TOPIC_SONOFF_CMND_POWER, String.valueOf(sonoff.getEstado()), false);
         mqttManager.publish(Topic.TOPIC_SONOFF_STAT_POWER, String.valueOf(sonoff.getEstado()), false);
-                                        System.out.println(" despues de mqtt");
 
+
+        
         response.sendRedirect(response.encodeURL("panelCtrl.jsp"));
 
     }

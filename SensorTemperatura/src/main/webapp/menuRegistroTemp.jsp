@@ -38,19 +38,6 @@
                             <td>Fecha</td>
                             <td>Temperatura</td>
                         </tr>
-                        <% for (RegistroTemp r : listRegistroTemps) {%>
-                        <tr>
-                            <td><%=r.getFecha()%></td>
-                            <td><%=r.getTemperatura()%></td>
-                        </tr>
-                        <% }%>
-                    </table>
-                    <table border="1">
-                        <tr style="background-color:blue; color:white">
-                            <td>Usuario</td>
-                            <td>Fecha</td>
-                            <td>Estado Sonoff</td>
-                        </tr>
                         <%
                             String usuario = (String) session.getAttribute("usuario");
                             if (usuario.equals("admin")) {
